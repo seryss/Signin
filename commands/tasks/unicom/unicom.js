@@ -121,13 +121,13 @@ var start = async (params) => {
 
   // 首页-签到有礼-免费拿-看视频夺宝
   // 易出现本次操作需要进行验证，暂时注释
-  // await scheduler.regTask('dailyVideoFreeGoods', async (request) => {
-  //   await require('./dailyVideoFreeGoods').doTask(request, options)
-  // }, {
-  //   isCircle: true,
-  //   startTime: 10 * 3600,
-  //   intervalTime: 4 * 3600
-  // })
+   await scheduler.regTask('dailyVideoFreeGoods', async (request) => {
+     await require('./dailyVideoFreeGoods').doTask(request, options)
+   }, {
+     isCircle: true,
+     startTime: 10 * 3600,
+     intervalTime: 4 * 3600
+   })
 
   // 首页-签到有礼-免费抽-赢vivo x60
   await scheduler.regTask('dailyNcow', async (request) => {
@@ -161,13 +161,13 @@ var start = async (params) => {
 
   // 首页-签到有礼-免费抽-赢三星Galaxy Z(试试手气)
   // 活动已下线
-  // await scheduler.regTask('dailyCheapStorePage', async (request) => {
-  //   await require('./dailyCheapStorePage').doTask(request, options)
-  // }, {
-  //   isCircle: true,
-  //   intervalTime: 4 * 3600,
-  //   ...taskOption
-  // })
+   await scheduler.regTask('dailyCheapStorePage', async (request) => {
+     await require('./dailyCheapStorePage').doTask(request, options)
+   }, {
+     isCircle: true,
+     intervalTime: 4 * 3600,
+     ...taskOption
+   })
 
   // 首页-签到有礼-免费抽-拆华为Pad(去抽奖)
   await scheduler.regTask('dailyLKMH', async (request) => {
@@ -247,42 +247,42 @@ var start = async (params) => {
   //   startTime: 18 * 3600
   // })
 
-  // // 首页-牛气-秒杀抢兑
-  // await scheduler.regTask('NiujieSpikePrize', async (request) => {
-  //   await require('./Niujie').spikePrize(request, options)
-  // }, {
-  //   ...taskOption,
-  //   startTime: 9.6 * 3600,
-  //   ignoreRelay: true
-  // })
+   // 首页-牛气-秒杀抢兑
+   await scheduler.regTask('NiujieSpikePrize', async (request) => {
+     await require('./Niujie').spikePrize(request, options)
+   }, {
+     ...taskOption,
+     startTime: 9.6 * 3600,
+     ignoreRelay: true
+   })
 
   // 首页-牛气-转盘抽奖
-  // await scheduler.regTask('NiujieTask', async (request) => {
-  //   await require('./Niujie').doTask(request, options)
-  // }, taskOption)
+   await scheduler.regTask('NiujieTask', async (request) => {
+     await require('./Niujie').doTask(request, options)
+   }, taskOption)
 
   // // 首页-牛气-积分馆-翻签抽奖
-  // await scheduler.regTask('newYearLottery', async (request) => {
-  //   await require('./Niujie').newYearLottery(request, options)
-  // }, taskOption)
+   await scheduler.regTask('newYearLottery', async (request) => {
+     await require('./Niujie').newYearLottery(request, options)
+   }, taskOption)
 
   // // 首页-牛气-场馆领牛气
-  // await scheduler.regTask('NiujieReceiveCalf', async (request) => {
-  //   await require('./Niujie').receiveCalf(request, options)
-  // }, {
-  //   isCircle: true,
-  //   intervalTime: 50 * 60,
-  //   startTime: 0,
-  //   ...taskOption
-  // })
+   await scheduler.regTask('NiujieReceiveCalf', async (request) => {
+     await require('./Niujie').receiveCalf(request, options)
+   }, {
+     isCircle: true,
+     intervalTime: 50 * 60,
+     startTime: 0,
+     ...taskOption
+   })
 
   // // 首页-牛气-兑换奖品
-  // await scheduler.regTask('convertPrize', async (request) => {
-  //   await require('./Niujie').convertPrize(request, options)
-  // }, {
-  //   ...taskOption,
-  //   startTime: 22 * 3600
-  // })
+   await scheduler.regTask('convertPrize', async (request) => {
+     await require('./Niujie').convertPrize(request, options)
+   }, {
+     ...taskOption,
+     startTime: 22 * 3600
+   })
 
   // 首页-知识-阅读答题赢好礼
   await scheduler.regTask('dailyBookAnswer', async (request) => {
@@ -315,9 +315,9 @@ var start = async (params) => {
   }, taskOption)
 
   // 福利社-聚人气-看视频得积分
-  // await scheduler.regTask('doWelfareActivityIntegralTask', async (request) => {
-  //   await require('./dailyOtherRewardVideo').doWelfareActivityIntegralTask(request, options)
-  // }, taskOption)
+   await scheduler.regTask('doWelfareActivityIntegralTask', async (request) => {
+     await require('./dailyOtherRewardVideo').doWelfareActivityIntegralTask(request, options)
+   }, taskOption)
 
   // 首页-签到有礼-免费领-饿了么红包
   await scheduler.regTask('dailyUnicomTask', async (request) => {
@@ -382,7 +382,7 @@ var start = async (params) => {
     ignoreRelay: true
   })
 
-  // 每日0点自动兑换流量
+/*  // 每日0点自动兑换流量
   await scheduler.regTask('exchangeDFlow', async (request) => {
     await require('./exchangeDFlow').doTask(request, options)
   }, {
@@ -409,7 +409,7 @@ var start = async (params) => {
     startTime: 5 * 60,
     ignoreRelay: true
   })
-
+*/
   // 每日奖励信息结果推送
   if (!('asm_func' in process.env) || process.env.asm_func === 'false') {
     await scheduler.regTask('dailyNotifyReward', async (request) => {
